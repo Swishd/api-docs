@@ -27,8 +27,9 @@ Then you can obtain an api key from the merchant profile section.
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl https://api.swishd.com
-  -H "Authorization: Bearer [the key]"
+curl -H "Authorization: Bearer [the key]"
+    https://api.swishd.com
+  
 ```
 
 Swishd uses API keys to allow access to the API. You can obtain a new API key at [app.swishd.com](https://app.swishd.com).
@@ -41,10 +42,11 @@ Swishd expects for the API key to be included in all API requests to the server 
 
 # Deliveries
 
-## Get All My deliveries
+## Get All My Deliveries
 
 ```shell  
-curl -H "Authorization: Bearer [the key]" "https://api.swishd.com/v1/deliveries?page=1&pageSize=10"
+curl -H "Authorization: Bearer [the key]" 
+    "https://api.swishd.com/v1/deliveries?page=1&pageSize=10"
 ```
 
 > The above command returns JSON structured like this:
@@ -107,63 +109,137 @@ This endpoint retrieves all deliveries belonging to your business.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://api.swishd.com/v1/deliveries`
 
 ### Query Parameters
 
-Parameter | Default | Description
+Parameter | Required | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+page | yes | Page number
+pageSize | yes | Number of elements per page
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+page and pageSize are mandatory to prevent fetching a huge dataset.
 </aside>
 
-## Get a Specific Kitten
+## Get a Specific Delivery
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl -H "Authorization: Bearer [the key]" 
+    "https://api.swishd.com/v1/deliveries/id"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "_id": "5728961744c8c8241f2f70d8",
+    "type": "fixed",
+    "vehicleType": "scooter",
+    "unattendedDeliveryOption": "4",
+    "pickupTime": "2016-05-03T12:31:00.000Z",
+    "latestPickupTime": "2016-05-03T15:31:00.000Z",
+    "pickupAddress": "225, Central Markets, London EC1A 9LH, United Kingdom",
+    "dropoffAddress": "40 Commercial St, London E1 6LP, United Kingdom",
+    "merchantId": "571618db84a6f0241fd7e4f6",
+    "pickupLocationId": "57152868f3e7800a2881498c",
+    "dropoffLocationId": "57152869f3e7800a2881498d",
+    "customerFee": 7.6,
+    "quote": {
+        "deliveryTime": "2016-05-03T12:50:27.000Z",
+        "distance": "1.87",
+        "minutes": "19",
+        "distUnit": "mile",
+        "currency": "GBP",
+        "cost": "7.60",
+        "_id": "5728961744c8c8241f2f70d9"
+    },
+    "currentStatus": "Completed",
+    "jobId": "a823fa99-2bfd-46e7-b466-54449a88738e",
+    "reference": "194055",
+    "driverName": "Jakir Hussain",
+    "driverId": "56b346a8f3e7800a28812bbb",
+    "trackingUrls": {
+        "api": "https://app.getswift.co/api/v2/deliveries/a823fa99-2bfd-46e7-b466-54449a88738e",
+        "www": "https://app.getswift.co/t/Be3ed"
+    },
+    "lastUpdated": "2016-05-03T12:50:09.990Z",
+    "created": "2016-05-03T12:14:06.297Z",
+    "receiver": {
+        "name": "The Culpeper",
+        "phone": "12345645646",
+        "email": "arthur.bilalov@swishd.com"
+    },
+    "sender": {
+        "name": "Icefront, 222",
+        "phone": "07710 649826",
+        "email": "rm@joinfoodchain.com"
+    },
+    "dropoffTime": {
+        "latestTime": "2016-05-03T12:50:27.000Z",
+        "earliestTime": "2016-05-03T12:50:27.000Z"
+    },
+    "items": []
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific delivery.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<aside class="warning">You need to know the delivery id</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.swishd.com/v1/deliveries/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the delivery to retreive
+
+
+## Book a Delivery
+
+
+```shell
+curl -H "Authorization: Bearer [the key]" -X "POST"
+    "https://api.swishd.com/v1/deliveries"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+```
+
+This endpoint adds a new delivery order into the system.
+
+
+### HTTP Request
+
+`POST https://api.swishd.com/v1/deliveries`
+
+
+## Get a Quote
+
+
+```shell
+curl -H "Authorization: Bearer [the key]" -X "POST"
+    "https://api.swishd.com/v1/quote"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+```
+
+This endpoint returns a quote. It essentially mimics the new delivery endpoint without registering the delivery in the system and
+returning an estimated price and other delivery information.
+
+
+### HTTP Request
+
+`POST https://api.swishd.com/v1/quote`
 
