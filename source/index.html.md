@@ -28,66 +28,82 @@ Then you can obtain an api key from the merchant profile section.
 ```shell
 # With shell, you can just pass the correct header with each request
 curl https://api.swishd.com
-  -H "Authorization: Bearer meowmeowmeow"
+  -H "Authorization: Bearer [the key]"
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Swishd uses API keys to allow access to the API. You can obtain a new API key at [app.swishd.com](https://app.swishd.com).
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Swishd expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+`Authorization: Bearer [the key]`
 
-`Authorization: meowmeowmeow`
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
 
-# Kittens
+# Deliveries
 
-## Get All Kittens
+## Get All My deliveries
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+```shell  
+curl -H "Authorization: Bearer [the key]" "https://api.swishd.com/v1/deliveries?page=1&pageSize=10"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+    {
+        "_id": "5728961744c8c8241f2f70d8",
+        "type": "fixed",
+        "vehicleType": "scooter",
+        "unattendedDeliveryOption": "4",
+        "pickupTime": "2016-05-03T12:31:00.000Z",
+        "latestPickupTime": "2016-05-03T15:31:00.000Z",
+        "pickupAddress": "225, Central Markets, London EC1A 9LH, United Kingdom",
+        "dropoffAddress": "40 Commercial St, London E1 6LP, United Kingdom",
+        "merchantId": "571618db84a6f0241fd7e4f6",
+        "pickupLocationId": "57152868f3e7800a2881498c",
+        "dropoffLocationId": "57152869f3e7800a2881498d",
+        "customerFee": 7.6,
+        "quote": {
+            "deliveryTime": "2016-05-03T12:50:27.000Z",
+            "distance": "1.87",
+            "minutes": "19",
+            "distUnit": "mile",
+            "currency": "GBP",
+            "cost": "7.60",
+            "_id": "5728961744c8c8241f2f70d9"
+        },
+        "currentStatus": "Completed",
+        "jobId": "a823fa99-2bfd-46e7-b466-54449a88738e",
+        "reference": "194055",
+        "driverName": "Jakir Hussain",
+        "driverId": "56b346a8f3e7800a28812bbb",
+        "trackingUrls": {
+            "api": "https://app.getswift.co/api/v2/deliveries/a823fa99-2bfd-46e7-b466-54449a88738e",
+            "www": "https://app.getswift.co/t/Be3ed"
+        },
+        "lastUpdated": "2016-05-03T12:50:09.990Z",
+        "created": "2016-05-03T12:14:06.297Z",
+        "receiver": {
+            "name": "The Culpeper",
+            "phone": "12345645646",
+            "email": "arthur.bilalov@swishd.com"
+        },
+        "sender": {
+            "name": "Icefront, 222",
+            "phone": "07710 649826",
+            "email": "rm@joinfoodchain.com"
+        },
+        "dropoffTime": {
+            "latestTime": "2016-05-03T12:50:27.000Z",
+            "earliestTime": "2016-05-03T12:50:27.000Z"
+        },
+        "items": []
+    }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all deliveries belonging to your business.
 
 ### HTTP Request
 
