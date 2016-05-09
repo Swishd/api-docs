@@ -80,10 +80,6 @@ curl -H "Authorization: Bearer [the key]"
         "reference": "194055",
         "driverName": "Ayman",
         "driverId": "1234124542342",
-        "trackingUrls": {
-            "api": "...",
-            "www": "..."
-        },
         "lastUpdated": "2016-05-03T12:50:09.990Z",
         "created": "2016-05-03T12:14:06.297Z",
         "receiver": {
@@ -160,10 +156,6 @@ curl -H "Authorization: Bearer [the key]"
     "reference": "194055",
     "driverName": "Ayman",
     "driverId": "56b346a8f3e7800a28812bbb",
-    "trackingUrls": {
-        "api": "...",
-        "www": "..."
-    },
     "lastUpdated": "2016-05-03T12:50:09.990Z",
     "created": "2016-05-03T12:14:06.297Z",
     "receiver": {
