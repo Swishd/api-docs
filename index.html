@@ -402,8 +402,139 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 
 <p><code class="prettyprint">POST https://api.swishd.com/v1/deliveries</code></p>
 
+<h3 id="book-delivery-fields">Book Delivery Fields</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reference</td>
+<td>no</td>
+<td>If this is not included, Swishd will auto-generate a reference number</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>yes</strong></td>
+<td><strong>open</strong> or <strong>fixed</strong> - Fixed Deliveries must use the ​<em>pickupTime</em>​ parameter. Open Deliveries must use the ​<em>latestPickupTime</em>​ parameter.</td>
+</tr>
+<tr>
+<td>vehicleType</td>
+<td><strong>yes</strong></td>
+<td><strong>van</strong> or <strong>scooter</strong> - Fixed Deliveries can use ​<em>scooter</em>​ parameter. Open Deliveries can use the ​<em>scooter</em>​ or ​<em>van</em>​ parameter.</td>
+</tr>
+<tr>
+<td>pickupTime</td>
+<td><strong>yes</strong></td>
+<td>Fixed Deliveries must use the ​<em>pickupTime</em>​ parameter. Open Deliveries must use the ​<em>latestPickupTime</em>​ parameter.</td>
+</tr>
+<tr>
+<td>latestPickupTime</td>
+<td>no</td>
+<td>Required for Open Deliveries. Use the ​<em>latestPickupTime</em>​ parameter to signify the end of a window. eg. Delivery between ​<em>pickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00</td>
+</tr>
+<tr>
+<td>pickupLocation</td>
+<td><strong>yes</strong></td>
+<td>Object including the parameters of the Pickup item</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>yes</strong></td>
+<td>Name at Pickup Address (Person/Business Name)</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><strong>yes</strong></td>
+<td>Phone No. of Pickup Address</td>
+</tr>
+<tr>
+<td>email</td>
+<td><strong>yes</strong></td>
+<td>Email address of Pickup Address</td>
+</tr>
+<tr>
+<td>streetNumber</td>
+<td><strong>yes</strong></td>
+<td>Street Number</td>
+</tr>
+<tr>
+<td>street</td>
+<td><strong>yes</strong></td>
+<td>Street Name</td>
+</tr>
+<tr>
+<td>postCode</td>
+<td><strong>yes</strong></td>
+<td>PostCode</td>
+</tr>
+<tr>
+<td>city</td>
+<td><strong>yes</strong></td>
+<td>City</td>
+</tr>
+<tr>
+<td>dropoffLocation</td>
+<td><strong>yes</strong></td>
+<td>Object including the parameters of the Dropoff item</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>yes</strong></td>
+<td>Name at Dropoff Address (Person/Business Name)</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><strong>yes</strong></td>
+<td>Phone No. of Dropoff Address</td>
+</tr>
+<tr>
+<td>email</td>
+<td><strong>yes</strong></td>
+<td>Email address of Dropoff Address</td>
+</tr>
+<tr>
+<td>streetNumber</td>
+<td><strong>yes</strong></td>
+<td>Street Number</td>
+</tr>
+<tr>
+<td>street</td>
+<td><strong>yes</strong></td>
+<td>Street Name</td>
+</tr>
+<tr>
+<td>postCode</td>
+<td><strong>yes</strong></td>
+<td>PostCode</td>
+</tr>
+<tr>
+<td>city</td>
+<td><strong>yes</strong></td>
+<td>City</td>
+</tr>
+<tr>
+<td>unattendedDeliveryOption</td>
+<td><strong>yes</strong></td>
+<td>Options include: <strong>safeplace</strong> , ****</td>
+</tr>
+<tr>
+<td>items: []</td>
+<td>No</td>
+<td>Optional field where a <strong>collection</strong> of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include <strong>Quantity</strong> (integer) and ​<em>Description</em>​ (string).</td>
+</tr>
+<tr>
+<td>requestedAddress</td>
+<td>No</td>
+<td>If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the ​<em>pickupLocation</em>​ or ​<em>dropoffLocation</em>​ object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-a-quote">Get a Quote</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span> -X <span class="s2">"POST"</span> --data @body.json
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> --data @body.json
     <span class="s2">"https://api.swishd.com/v1/quote"</span>
 </code></pre>
 
@@ -484,7 +615,136 @@ returning an estimated price and other delivery information.</p>
 
 <p><code class="prettyprint">POST https://api.swishd.com/v1/quote</code></p>
 
-<p>Document to send:</p>
+<h3 id="quote-delivery-fields">Quote Delivery Fields</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reference</td>
+<td>no</td>
+<td>If this is not included, Swishd will auto-generate a reference number</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>yes</strong></td>
+<td><strong>open</strong> or <strong>fixed</strong> - Fixed Deliveries must use the <em>pickupTime</em> parameter. Open Deliveries must use the <em>latestPickupTime</em> parameter.</td>
+</tr>
+<tr>
+<td>vehicleType</td>
+<td><strong>yes</strong></td>
+<td><strong>van</strong> or <strong>scooter</strong> - Fixed Deliveries can use <em>scooter</em> parameter. Open Deliveries can use the <em>scooter</em> or <em>van</em> parameter.</td>
+</tr>
+<tr>
+<td>pickupTime</td>
+<td><strong>yes</strong></td>
+<td>Fixed Deliveries must use the <em>pickupTime</em> parameter. Open Deliveries must use the <em>latestPickupTime</em> parameter.</td>
+</tr>
+<tr>
+<td>latestPickupTime</td>
+<td>no</td>
+<td>Required for Open Deliveries. Use the <em>latestPickupTime</em> parameter to signify the end of a window. eg. Delivery between <em>pickupTime</em> 09:00 and <em>latestPickupTime</em> 12:00</td>
+</tr>
+<tr>
+<td>pickupLocation</td>
+<td><strong>yes</strong></td>
+<td>Object including the parameters of the Pickup item</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>no</strong></td>
+<td>Name at Pickup Address (Person/Business Name)</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><strong>no</strong></td>
+<td>Phone No. of Pickup Address</td>
+</tr>
+<tr>
+<td>email</td>
+<td><strong>no</strong></td>
+<td>Email address of Pickup Address</td>
+</tr>
+<tr>
+<td>streetNumber</td>
+<td><strong>yes</strong></td>
+<td>Street Number</td>
+</tr>
+<tr>
+<td>street</td>
+<td><strong>yes</strong></td>
+<td>Street Name</td>
+</tr>
+<tr>
+<td>postCode</td>
+<td><strong>yes</strong></td>
+<td>PostCode</td>
+</tr>
+<tr>
+<td>city</td>
+<td><strong>yes</strong></td>
+<td>City</td>
+</tr>
+<tr>
+<td>dropoffLocation</td>
+<td><strong>yes</strong></td>
+<td>Object including the parameters of the Dropoff item</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>no</strong></td>
+<td>Name at Dropoff Address (Person/Business Name)</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><strong>no</strong></td>
+<td>Phone No. of Dropoff Address</td>
+</tr>
+<tr>
+<td>email</td>
+<td><strong>no</strong></td>
+<td>Email address of Dropoff Address</td>
+</tr>
+<tr>
+<td>streetNumber</td>
+<td><strong>yes</strong></td>
+<td>Street Number</td>
+</tr>
+<tr>
+<td>street</td>
+<td><strong>yes</strong></td>
+<td>Street Name</td>
+</tr>
+<tr>
+<td>postCode</td>
+<td><strong>yes</strong></td>
+<td>PostCode</td>
+</tr>
+<tr>
+<td>city</td>
+<td><strong>yes</strong></td>
+<td>City</td>
+</tr>
+<tr>
+<td>unattendedDeliveryOption</td>
+<td><strong>no</strong></td>
+<td>Options include: <strong>safeplace</strong> , ****</td>
+</tr>
+<tr>
+<td>items: []</td>
+<td>No</td>
+<td>Optional field where a <strong>collection</strong> of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include <strong>Quantity</strong> (integer) and <em>Description</em> (string).</td>
+</tr>
+<tr>
+<td>requestedAddress</td>
+<td>No</td>
+<td>If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the <em>pickupLocation</em> or <em>dropoffLocation</em> object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.</td>
+</tr>
+</tbody></table>
 
           <h1 id="errors">Errors</h1>
 
