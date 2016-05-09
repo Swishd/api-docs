@@ -291,11 +291,42 @@ This endpoint adds a new delivery order into the system.
 `POST https://api.swishd.com/v1/deliveries`
 
 
+
+### Book Delivery Fields
+
+Parameter | Required | Description
+--------- | ------- | -----------
+reference | no | If this is not included, Swishd will auto-generate a reference number
+type | **yes** | **open** or **fixed** - Fixed Deliveries must use the ​*pickupTime*​ parameter. Open Deliveries must use the ​*latestPickupTime*​ parameter.
+vehicleType | **yes** | **van** or **scooter** - Fixed Deliveries can use ​*scooter*​ parameter. Open Deliveries can use the ​*scooter*​ or ​*van*​ parameter.
+pickupTime | **yes** | Fixed Deliveries must use the ​*pickupTime*​ parameter. Open Deliveries must use the ​*latestPickupTime*​ parameter.
+latestPickupTime | no | Required for Open Deliveries. Use the ​*latestPickupTime*​ parameter to signify the end of a window. eg. Delivery between ​*pickupTime*​ 09:00 and ​*latestPickupTime*​ 12:00
+pickupLocation | **yes** | Object including the parameters of the Pickup item
+name | **yes** | Name at Pickup Address (Person/Business Name)
+phone | **yes** | Phone No. of Pickup Address
+email | **yes** | Email address of Pickup Address
+streetNumber | **yes** | Street Number
+street | **yes** | Street Name
+postCode | **yes** | PostCode
+city | **yes** | City
+dropoffLocation | **yes** | Object including the parameters of the Dropoff item
+name | **yes** | Name at Dropoff Address (Person/Business Name)
+phone | **yes** | Phone No. of Dropoff Address
+email | **yes** | Email address of Dropoff Address
+streetNumber | **yes** | Street Number
+street | **yes** | Street Name
+postCode | **yes** | PostCode
+city | **yes** | City
+unattendedDeliveryOption | **yes** | Options include: **safeplace** , **** 
+items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include **Quantity** (integer) and ​*Description*​ (string).
+requestedAddress | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the ​*pickupLocation*​ or ​*dropoffLocation*​ object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
+
+
 ## Get a Quote
 
 
 ```shell
-curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
+curl -X "POST" --data @body.json
     "https://api.swishd.com/v1/quote"
 ```
 > The document to send:
@@ -376,5 +407,33 @@ returning an estimated price and other delivery information.
 
 `POST https://api.swishd.com/v1/quote`
 
-Document to send:
+
+### Quote Delivery Fields
+
+Parameter | Required | Description
+--------- | ------- | -----------
+reference | no | If this is not included, Swishd will auto-generate a reference number
+type | **yes** | **open** or **fixed** - Fixed Deliveries must use the *pickupTime* parameter. Open Deliveries must use the *latestPickupTime* parameter.
+vehicleType | **yes** | **van** or **scooter** - Fixed Deliveries can use *scooter* parameter. Open Deliveries can use the *scooter* or *van* parameter.
+pickupTime | **yes** | Fixed Deliveries must use the *pickupTime* parameter. Open Deliveries must use the *latestPickupTime* parameter.
+latestPickupTime | no | Required for Open Deliveries. Use the *latestPickupTime* parameter to signify the end of a window. eg. Delivery between *pickupTime* 09:00 and *latestPickupTime* 12:00
+pickupLocation | **yes** | Object including the parameters of the Pickup item
+name | **no** | Name at Pickup Address (Person/Business Name)
+phone | **no** | Phone No. of Pickup Address
+email | **no** | Email address of Pickup Address
+streetNumber | **yes** | Street Number
+street | **yes** | Street Name
+postCode | **yes** | PostCode
+city | **yes** | City
+dropoffLocation | **yes** | Object including the parameters of the Dropoff item
+name | **no** | Name at Dropoff Address (Person/Business Name)
+phone | **no** | Phone No. of Dropoff Address
+email | **no** | Email address of Dropoff Address
+streetNumber | **yes** | Street Number
+street | **yes** | Street Name
+postCode | **yes** | PostCode
+city | **yes** | City
+unattendedDeliveryOption | **no** | Options include: **safeplace** , **** 
+items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include **Quantity** (integer) and *Description* (string).
+requestedAddress | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the *pickupLocation* or *dropoffLocation* object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
 
