@@ -316,14 +316,84 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 </tbody></table>
 
 <h2 id="book-a-delivery">Book a Delivery</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span> -X <span class="s2">"POST"</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span> -X <span class="s2">"POST"</span> --data @body.json
     <span class="s2">"https://api.swishd.com/v1/deliveries"</span>
 </code></pre>
 
 <blockquote>
+<p>The document to send:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"deliveryInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Handle with care"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T11:55:37.847008+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T16:55:37.847008+00:00"</span><span class="p">,</span><span class="w">  
+    </span><span class="nt">"pickupLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020 7522 7888"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firefex@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"streetNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Primrose Street"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EC2A2EX"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"dropoffLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07970 484316"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aymanhafez@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"streetNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broomwood Road"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW11 6LA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"deliveryInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Handle with care"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T11:55:37.847Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T16:55:37.847Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"571618db84a6f0241fd7e4f6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickupLocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1da6ef3e7800a288129c2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dropoffLocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1dddef3e7800a288129c8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customerFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"deliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.23"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"distUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mile"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.50"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57305643929641291f76cb4e"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Booked"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57305643929641291f76cb4d"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-09T09:20:03.056Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-09T09:20:03.056Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07970 484316"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aymanhafez@gmail.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020 7522 7888"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firefex@gmail.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"dropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"earliestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>This endpoint adds a new delivery order into the system.</p>
@@ -333,14 +403,78 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 <p><code class="prettyprint">POST https://api.swishd.com/v1/deliveries</code></p>
 
 <h2 id="get-a-quote">Get a Quote</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span> -X <span class="s2">"POST"</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span> -X <span class="s2">"POST"</span> --data @body.json
     <span class="s2">"https://api.swishd.com/v1/quote"</span>
 </code></pre>
 
 <blockquote>
+<p>The document to send:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"deliveryInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Handle with care"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T11:55:37.847008+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T16:55:37.847008+00:00"</span><span class="p">,</span><span class="w">  
+    </span><span class="nt">"pickupLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020 7522 7888"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firefex@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"streetNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Primrose Street"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EC2A2EX"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"dropoffLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07970 484316"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aymanhafez@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"streetNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broomwood Road"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SW11 6LA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"deliveryInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Handle with care"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T11:55:37.847Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T16:55:37.847Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"020 7522 7888"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firefex@gmail.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07970 484316"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aymanhafez@gmail.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"quoteOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customerFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.50"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"earliestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Primrose St, London EC2A 2EX, UK"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104 Broomwood Rd, London SW11 6JT, UK"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"deliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.23"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"distUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mile"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.50"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>This endpoint returns a quote. It essentially mimics the new delivery endpoint without registering the delivery in the system and
@@ -349,6 +483,8 @@ returning an estimated price and other delivery information.</p>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">POST https://api.swishd.com/v1/quote</code></p>
+
+<p>Document to send:</p>
 
           <h1 id="errors">Errors</h1>
 
