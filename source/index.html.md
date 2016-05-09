@@ -203,14 +203,84 @@ ID | The ID of the delivery to retreive
 
 
 ```shell
-curl -H "Authorization: Bearer [the key]" -X "POST"
+curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
     "https://api.swishd.com/v1/deliveries"
+```
+
+> The document to send:
+
+```json
+{
+    "reference": "TEST01",
+    "deliveryInstructions": "Handle with care",
+    "type": "open",
+    "vehicleType": "van",
+    "pickupTime": "2016-02-22T11:55:37.847008+00:00",
+    "latestPickupTime": "2016-02-22T16:55:37.847008+00:00",  
+    "pickupLocation": {
+        "name": "CatMan",
+        "phone": "020 7522 7888",
+        "email": "firefex@gmail.com",
+        "streetNumber": "1",
+        "street": "Primrose Street",
+        "postCode": "EC2A2EX",
+        "city": "London"
+    },
+    "dropoffLocation": {
+        "name": "DogMan",
+        "phone": "07970 484316",
+        "email": "aymanhafez@gmail.com",
+        "streetNumber": "104",
+        "street": "Broomwood Road",
+        "postCode": "SW11 6LA",
+        "city": "London"
+    }
+}
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-
+{
+    "type": "open",
+    "vehicleType": "van",
+    "reference": "TEST01",
+    "deliveryInstructions": "Handle with care",
+    "pickupTime": "2016-05-10T11:55:37.847Z",
+    "latestPickupTime": "2016-05-10T16:55:37.847Z",
+    "merchantId": "571618db84a6f0241fd7e4f6",
+    "pickupLocationId": "56b1da6ef3e7800a288129c2",
+    "dropoffLocationId": "56b1dddef3e7800a288129c8",
+    "customerFee": 11.5,
+    "quote": {
+        "deliveryTime": "2016-05-10T12:46:34.847Z",
+        "distance": "6.23",
+        "minutes": "51",
+        "distUnit": "mile",
+        "currency": "GBP",
+        "cost": "11.50",
+        "_id": "57305643929641291f76cb4e"
+    },
+    "currentStatus": "Booked",
+    "_id": "57305643929641291f76cb4d",
+    "lastUpdated": "2016-05-09T09:20:03.056Z",
+    "created": "2016-05-09T09:20:03.056Z",
+    "receiver": {
+        "name": "DogMan",
+        "phone": "07970 484316",
+        "email": "aymanhafez@gmail.com"
+    },
+    "sender": {
+        "name": "CatMan",
+        "phone": "020 7522 7888",
+        "email": "firefex@gmail.com"
+    },
+    "dropoffTime": {
+        "earliestTime": "2016-05-10T12:46:34.847Z",
+        "latestTime": "2016-05-10T12:46:34.847Z"
+    },
+    "items": []
+}
 ```
 
 This endpoint adds a new delivery order into the system.
@@ -225,14 +295,77 @@ This endpoint adds a new delivery order into the system.
 
 
 ```shell
-curl -H "Authorization: Bearer [the key]" -X "POST"
+curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
     "https://api.swishd.com/v1/quote"
+```
+> The document to send:
+
+```json
+{
+    "reference": "TEST01",
+    "deliveryInstructions": "Handle with care",
+    "type": "open",
+    "vehicleType": "van",
+    "pickupTime": "2016-02-22T11:55:37.847008+00:00",
+    "latestPickupTime": "2016-02-22T16:55:37.847008+00:00",  
+    "pickupLocation": {
+        "name": "CatMan",
+        "phone": "020 7522 7888",
+        "email": "firefex@gmail.com",
+        "streetNumber": "1",
+        "street": "Primrose Street",
+        "postCode": "EC2A2EX",
+        "city": "London"
+    },
+    "dropoffLocation": {
+        "name": "DogMan",
+        "phone": "07970 484316",
+        "email": "aymanhafez@gmail.com",
+        "streetNumber": "104",
+        "street": "Broomwood Road",
+        "postCode": "SW11 6LA",
+        "city": "London"
+    }
+}
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-
+{
+    "type": "open",
+    "vehicleType": "van",
+    "reference": "TEST01",
+    "deliveryInstructions": "Handle with care",
+    "pickupTime": "2016-05-10T11:55:37.847Z",
+    "latestPickupTime": "2016-05-10T16:55:37.847Z",
+    "sender": {
+        "name": "CatMan",
+        "phone": "020 7522 7888",
+        "email": "firefex@gmail.com"
+    },
+    "receiver": {
+        "name": "DogMan",
+        "phone": "07970 484316",
+        "email": "aymanhafez@gmail.com"
+    },
+    "quoteOnly": true,
+    "customerFee": "11.50",
+    "dropoffTime": {
+        "earliestTime": "2016-05-10T12:46:34.847Z",
+        "latestTime": "2016-05-10T12:46:34.847Z"
+    },
+    "quote": {
+        "origin": "1 Primrose St, London EC2A 2EX, UK",
+        "destination": "104 Broomwood Rd, London SW11 6JT, UK",
+        "deliveryTime": "2016-05-10T12:46:34.847Z",
+        "distance": "6.23",
+        "minutes": "51",
+        "distUnit": "mile",
+        "currency": "GBP",
+        "cost": "11.50"
+    }
+}
 ```
 
 This endpoint returns a quote. It essentially mimics the new delivery endpoint without registering the delivery in the system and
@@ -242,4 +375,6 @@ returning an estimated price and other delivery information.
 ### HTTP Request
 
 `POST https://api.swishd.com/v1/quote`
+
+Document to send:
 
