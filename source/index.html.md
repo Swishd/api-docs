@@ -310,6 +310,7 @@ streetNumber | **yes** | Street Number
 street | **yes** | Street Name
 postCode | **yes** | PostCode
 city | **yes** | City
+deliveryInstructions | no | Any additional information that is required to be passed to the driver
 unattendedDeliveryOption | **yes** | Options include: **safeplace** (Leave in a safe place) , **neighbour** (Leave item with Neighbour), **alt** (Delivery to Alternative Address - Will incur additional cost), **returnsender** (Delivery to Alternative Address - Will incur additional cost)
 unattendedDeliveryNote | no | Notes relating to the *unattendedDeliveryOption*
 items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include *Quantity* (integer) and ​*Description*​ (string).
@@ -428,6 +429,7 @@ streetNumber | **yes** | Street Number
 street | **yes** | Street Name
 postCode | **yes** | PostCode
 city | **yes** | City
+deliveryInstructions | no | Any additional information that is required to be passed to the driver
 unattendedDeliveryOption | **yes** | Options include: **safeplace** (Leave in a safe place) , **neighbour** (Leave item with Neighbour), **alt** (Delivery to Alternative Address - Will incur additional cost), **returnsender** (Delivery to Alternative Address - Will incur additional cost)
 unattendedDeliveryNote | no | Notes relating to the *unattendedDeliveryOption*
 items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include *Quantity* (integer) and *Description* (string).
