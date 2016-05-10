@@ -380,7 +380,7 @@ curl -X "POST" --data @body.json
     },
     "quote": {
         "origin": "1 Primrose St, London EC2A 2EX, UK",
-        "destination": "1 Commercial St, London E1 6LP, UK,
+        "destination": "1 Commercial St, London E1 6LP, UK",
         "deliveryTime": "2016-05-10T12:46:34.847Z",
         "distance": "6.23",
         "minutes": "51",
