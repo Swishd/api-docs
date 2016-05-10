@@ -57,7 +57,7 @@ curl -H "Authorization: Bearer [the key]"
         "_id": "[order id]",
         "type": "fixed",
         "vehicleType": "scooter",
-        "unattendedDeliveryOption": "4",
+        "unattendedDeliveryOption": "safeplace",
         "pickupTime": "2016-05-03T12:31:00.000Z",
         "latestPickupTime": "2016-05-03T15:31:00.000Z",
         "pickupAddress": "1 Primrose St, London EC2A 2EX, UK",
@@ -133,7 +133,7 @@ curl -H "Authorization: Bearer [the key]"
     "_id": "[order id]",
     "type": "fixed",
     "vehicleType": "scooter",
-    "unattendedDeliveryOption": "4",
+    "unattendedDeliveryOption": "alt",
     "pickupTime": "2016-05-03T12:31:00.000Z",
     "latestPickupTime": "2016-05-03T15:31:00.000Z",
     "pickupAddress": "1 Primrose St, London EC2A 2EX, UK",
@@ -310,7 +310,8 @@ streetNumber | **yes** | Street Number
 street | **yes** | Street Name
 postCode | **yes** | PostCode
 city | **yes** | City
-unattendedDeliveryOption | **yes** | Options include: **safeplace** , **** 
+unattendedDeliveryOption | **yes** | Options include: **safeplace** (Leave in a safe place) , **neighbour** (Leave item with Neighbour), **alt** (Delivery to Alternative Address - Will incur additional cost), **returnsender** (Delivery to Alternative Address - Will incur additional cost)
+unattendedDeliveryNote | no | Notes relating to the *unattendedDeliveryOption*
 items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include *Quantity* (integer) and ​*Description*​ (string).
 requestedAddress | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the ​*pickupLocation*​ or ​*dropoffLocation*​ object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
 
@@ -427,6 +428,7 @@ streetNumber | **yes** | Street Number
 street | **yes** | Street Name
 postCode | **yes** | PostCode
 city | **yes** | City
-unattendedDeliveryOption | **no** | Options include: **safeplace** , **** 
+unattendedDeliveryOption | **yes** | Options include: **safeplace** (Leave in a safe place) , **neighbour** (Leave item with Neighbour), **alt** (Delivery to Alternative Address - Will incur additional cost), **returnsender** (Delivery to Alternative Address - Will incur additional cost)
+unattendedDeliveryNote | no | Notes relating to the *unattendedDeliveryOption*
 items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include *Quantity* (integer) and *Description* (string).
 requestedAddress | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the *pickupLocation* or *dropoffLocation* object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
