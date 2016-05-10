@@ -311,7 +311,7 @@ street | **yes** | Street Name
 postCode | **yes** | PostCode
 city | **yes** | City
 unattendedDeliveryOption | **yes** | Options include: **safeplace** , **** 
-items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include **Quantity** (integer) and ​*Description*​ (string).
+items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include *Quantity* (integer) and ​*Description*​ (string).
 requestedAddress | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the ​*pickupLocation*​ or ​*dropoffLocation*​ object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
 
 
@@ -428,5 +428,5 @@ street | **yes** | Street Name
 postCode | **yes** | PostCode
 city | **yes** | City
 unattendedDeliveryOption | **no** | Options include: **safeplace** , **** 
-items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include **Quantity** (integer) and *Description* (string).
+items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include *Quantity* (integer) and *Description* (string).
 requestedAddress | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the *pickupLocation* or *dropoffLocation* object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
