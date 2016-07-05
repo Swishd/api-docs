@@ -207,7 +207,7 @@ curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
     "deliveryInstructions": "Handle with care",
     "type": "open",
     "vehicleType": "van",
-    "pickupTime": "2016-02-22T11:55:37.847008+00:00",
+    "earliestPickupTime": "2016-02-22T11:55:37.847008+00:00",
     "latestPickupTime": "2016-02-22T16:55:37.847008+00:00",  
     "pickupLocation": {
         "name": "CatMan",
@@ -238,7 +238,7 @@ curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
     "vehicleType": "van",
     "reference": "TEST01",
     "deliveryInstructions": "Handle with care",
-    "pickupTime": "2016-05-10T11:55:37.847Z",
+    "earliestPickupTime": "2016-05-10T11:55:37.847Z",
     "latestPickupTime": "2016-05-10T16:55:37.847Z",
     "merchantId": "571618db84a6f0241fd7e4f6",
     "pickupLocationId": "56b1da6ef3e7800a288129c2",
@@ -332,7 +332,7 @@ curl -X "POST" --data @body.json
     "deliveryInstructions": "Handle with care",
     "type": "open",
     "vehicleType": "van",
-    "pickupTime": "2016-02-22T11:55:37.847008+00:00",
+    "earliestPickupTime": "2016-02-22T11:55:37.847008+00:00",
     "latestPickupTime": "2016-02-22T16:55:37.847008+00:00",  
     "pickupLocation": {
         "name": "CatMan",
@@ -363,7 +363,7 @@ curl -X "POST" --data @body.json
     "vehicleType": "van",
     "reference": "TEST01",
     "deliveryInstructions": "Handle with care",
-    "pickupTime": "2016-05-10T11:55:37.847Z",
+    "earliestPickupTime": "2016-05-10T11:55:37.847Z",
     "latestPickupTime": "2016-05-10T16:55:37.847Z",
     "receiver": {
         "name": "DogMan",
