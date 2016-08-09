@@ -580,43 +580,18 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"deliveryInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Handle with care"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"earliestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T11:55:37.847Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T16:55:37.847Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0745xxxxxx"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sir@dogface.com"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0740xxxxxx"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr@catface.com"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"quoteOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customerFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.50"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"earliestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"latestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Primrose St, London EC2A 2EX, UK"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Commercial St, London E1 6LP, UK"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"deliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.23"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"distUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mile"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.50"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="nt">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Primrose St, London EC2A 2EX, UK"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Commercial St, London E1 6LP, UK"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"deliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.23"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"distUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mile"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.50"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint returns a quote. It essentially mimics the new delivery endpoint without registering the delivery in the system and
-returning an estimated price and other delivery information.</p>
+<p>This endpoint returns a quote with an estimated price, distance and delivery time.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
