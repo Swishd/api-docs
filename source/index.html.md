@@ -359,43 +359,18 @@ curl -X "POST" --data @body.json
 
 ```json
 {
-    "type": "open",
-    "vehicleType": "van",
-    "reference": "TEST01",
-    "deliveryInstructions": "Handle with care",
-    "earliestPickupTime": "2016-05-10T11:55:37.847Z",
-    "latestPickupTime": "2016-05-10T16:55:37.847Z",
-    "receiver": {
-        "name": "DogMan",
-        "phone": "0745xxxxxx",
-        "email": "sir@dogface.com"
-    },
-    "sender": {
-        "name": "CatMan",
-        "phone": "0740xxxxxx",
-        "email": "mr@catface.com"
-    },
-    "quoteOnly": true,
-    "customerFee": "11.50",
-    "dropoffTime": {
-        "earliestTime": "2016-05-10T12:46:34.847Z",
-        "latestTime": "2016-05-10T12:46:34.847Z"
-    },
-    "quote": {
-        "origin": "1 Primrose St, London EC2A 2EX, UK",
-        "destination": "1 Commercial St, London E1 6LP, UK",
-        "deliveryTime": "2016-05-10T12:46:34.847Z",
-        "distance": "6.23",
-        "minutes": "51",
-        "distUnit": "mile",
-        "currency": "GBP",
-        "cost": "11.50"
-    }
+    "origin": "1 Primrose St, London EC2A 2EX, UK",
+    "destination": "1 Commercial St, London E1 6LP, UK",
+    "deliveryTime": "2016-05-10T12:46:34.847Z",
+    "distance": "6.23",
+    "minutes": "51",
+    "distUnit": "mile",
+    "currency": "GBP",
+    "cost": "11.50"
 }
 ```
 
-This endpoint returns a quote. It essentially mimics the new delivery endpoint without registering the delivery in the system and
-returning an estimated price and other delivery information.
+This endpoint returns a quote with an estimated price, distance and delivery time.
 
 
 ### HTTP Request
