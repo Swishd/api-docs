@@ -143,7 +143,7 @@ curl -H <span class="s2">"Authorization: Bearer [the key]"</span>
 <h1 id="deliveries">Deliveries</h1>
 
 <h2 id="get-all-my-deliveries">Get All My Deliveries</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span> 
+<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span>
     <span class="s2">"https://api.swishd.com/v1/deliveries?page=1&amp;pageSize=10"</span>
 </code></pre>
 
@@ -155,15 +155,23 @@ curl -H <span class="s2">"Authorization: Bearer [the key]"</span>
         </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[order id]"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scooter"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unattendedDeliveryOption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safeplace"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"pickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:31:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T15:31:00.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"pickupAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Primrose St, London EC2A 2EX, UK"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"dropoffAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Commercial St, London E1 6LP, UK"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"pickupLocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"dropoffLocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"customerFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.6</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"unattendedDeliveryOption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safeplace"</span><span class="p">,</span><span class="w">        
+        </span><span class="nt">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr John Doe"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mrx@email.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"pickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:31:00.000Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T15:31:00.000Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Primrose St, London EC2A 2EX, UK"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"dropoff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arthur"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ms@email.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Commercial St, London E1 6LP, UK"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"latestDropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"earliestDropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"deliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.87"</span><span class="p">,</span><span class="w">
@@ -175,25 +183,12 @@ curl -H <span class="s2">"Authorization: Bearer [the key]"</span>
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"194055"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"driverName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ayman"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"driverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234124542342"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"lastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:09.990Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:14:06.297Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arthur"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345645646"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ms@email.com"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr John Doe"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07xxxxxxxx"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mrx@email.com"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"dropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"latestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"earliestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -231,7 +226,7 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 </aside>
 
 <h2 id="get-a-specific-delivery">Get a Specific Delivery</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span> 
+<pre class="highlight shell"><code>curl -H <span class="s2">"Authorization: Bearer [the key]"</span>
     <span class="s2">"https://api.swishd.com/v1/deliveries/id"</span>
 </code></pre>
 
@@ -242,15 +237,31 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
     </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[order id]"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scooter"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"unattendedDeliveryOption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alt"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"pickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:31:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T15:31:00.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"pickupAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Primrose St, London EC2A 2EX, UK"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dropoffAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Commercial St, London E1 6LP, UK"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"pickupLocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dropoffLocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customerFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.6</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"unattendedDeliveryOption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alt"</span><span class="p">,</span><span class="w">    
+    </span><span class="nt">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr John Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07xxxxxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mrx@email.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:31:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T15:31:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Primrose St, London EC2A 2EX, UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"geoCodedAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Primrose St, London EC2A 2EX, UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"dropoff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arthur"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345645646"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ms@email.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Commercial St, London E1 6LP, UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"geoCodedAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Commercial St, London E1 6LP, UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"latestDropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"earliestDropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"deliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.87"</span><span class="p">,</span><span class="w">
@@ -262,25 +273,12 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"194055"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"driverName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ayman"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"driverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b346a8f3e7800a28812bbb"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"lastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:09.990Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:14:06.297Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arthur"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345645646"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ms@email.com"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr John Doe"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07xxxxxxxx"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mrx@email.com"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"dropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"latestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"earliestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:50:27.000Z"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-03T12:14:06.297Z"</span><span class="p">,</span><span class="w">    
     </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -319,26 +317,28 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
     </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"deliveryInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Handle with care"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"earliestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T11:55:37.847008+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T16:55:37.847008+00:00"</span><span class="p">,</span><span class="w">  
-    </span><span class="nt">"pickupLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">    
+    </span><span class="nt">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan Ltd."</span><span class="p">,</span><span class="w">
         </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0740xxxxxx"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr@catface.com"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"streetNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Primrose Street"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EC2A2EX"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"earliestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T11:55:37.847008+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T16:55:37.847008+00:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"dropoffLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dropoff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">        
         </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0745xxxxxx"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sir@dogface.com"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"streetNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Commercial Street"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E1 6LP"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -351,38 +351,36 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
     </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"deliveryInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Handle with care"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"earliestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T11:55:37.847Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T16:55:37.847Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"571618db84a6f0241fd7e4f6"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"pickupLocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1da6ef3e7800a288129c2"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dropoffLocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1dddef3e7800a288129c8"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customerFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.5</span><span class="p">,</span><span class="w">
     </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"deliveryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.23"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"distUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mile"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.50"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57305643929641291f76cb4e"</span><span class="w">
+        </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.50"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Booked"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57305643929641291f76cb4d"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"lastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-09T09:20:03.056Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-09T09:20:03.056Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"dropoff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"earliestDropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latestDropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0745xxxxxx"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sir@dogface.com"</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sir@dogface.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"customerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">        
+        </span><span class="nt">"earliestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T11:55:37.847Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T16:55:37.847Z"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan Ltd."</span><span class="p">,</span><span class="w">        
         </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0740xxxxxx"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr@catface.com"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"dropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"earliestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"latestTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-10T12:46:34.847Z"</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr@catface.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"customerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1dddef3e7800a288129c8"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -411,7 +409,7 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 <tr>
 <td>type</td>
 <td><strong>yes</strong></td>
-<td><strong>open</strong> or <strong>fixed</strong> - Fixed Deliveries must use the ​<em>pickupTime</em>​ parameter. Open Deliveries must use the <em>earliestPickupTime &amp; ​*latestPickupTime</em>​ parameters.</td>
+<td><strong>open</strong> or <strong>fixed</strong> - Fixed Deliveries must use the ​<em>pickup.pickupTime</em>​ parameter. Open Deliveries must use the <em>pickup.earliestPickupTime &amp; ​*pickup.latestPickupTime</em>​ parameters.</td>
 </tr>
 <tr>
 <td>vehicleType</td>
@@ -419,99 +417,119 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 <td><strong>van</strong> or <strong>scooter</strong> - Fixed Deliveries can use ​<em>scooter</em>​ parameter. Open Deliveries can use the ​<em>scooter</em>​ or ​<em>van</em>​ parameter.</td>
 </tr>
 <tr>
-<td>pickupTime</td>
-<td><strong>yes</strong></td>
-<td>Fixed Deliveries must use the ​<em>pickupTime</em>​ parameter.</td>
-</tr>
-<tr>
-<td>earliestPickupTime</td>
-<td><strong>yes</strong></td>
-<td>Required for Open Deliveries. Used in conjunction with the <em>latestPickupTime</em>​ parameter. Use the ​<em>earliestPickupTime</em>​ parameter to signify the start of a window. eg. Delivery between ​<em>earliestPickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00.</td>
-</tr>
-<tr>
-<td>latestPickupTime</td>
-<td><strong>yes</strong></td>
-<td>Required for Open Deliveries. Use the ​<em>latestPickupTime</em>​ parameter to signify the end of a window. eg. Delivery between ​<em>earliestPickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00.</td>
-</tr>
-<tr>
-<td>pickupLocation</td>
+<td>pickup</td>
 <td><strong>yes</strong></td>
 <td>Object including the parameters of the Pickup item</td>
 </tr>
 <tr>
-<td>name</td>
+<td>pickup.pickupTime</td>
 <td><strong>yes</strong></td>
-<td>Name at Pickup Address (Person/Business Name)</td>
+<td>Fixed Deliveries must use the ​<em>pickupTime</em>​ parameter.</td>
 </tr>
 <tr>
-<td>phone</td>
+<td>pickup.earliestPickupTime</td>
+<td><strong>yes</strong></td>
+<td>Required for Open Deliveries. Used in conjunction with the <em>latestPickupTime</em>​ parameter. Use the ​<em>earliestPickupTime</em>​ parameter to signify the start of a window. eg. Delivery between ​<em>earliestPickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00.</td>
+</tr>
+<tr>
+<td>pickup.latestPickupTime</td>
+<td><strong>yes</strong></td>
+<td>Required for Open Deliveries. Use the ​<em>latestPickupTime</em>​ parameter to signify the end of a window. eg. Delivery between ​<em>earliestPickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00.</td>
+</tr>
+<tr>
+<td>pickup.name</td>
+<td><strong>yes</strong></td>
+<td>Name at Pickup Address (Person Name)</td>
+</tr>
+<tr>
+<td>pickup.companyName</td>
+<td><strong>yes</strong></td>
+<td>Name at Pickup Address (Business Name)</td>
+</tr>
+<tr>
+<td>pickup.phone</td>
 <td><strong>yes</strong></td>
 <td>Phone No. of Pickup Address</td>
 </tr>
 <tr>
-<td>email</td>
+<td>pickup.email</td>
 <td><strong>yes</strong></td>
 <td>Email address of Pickup Address</td>
 </tr>
 <tr>
-<td>streetNumber</td>
+<td>pickup.streetNumber</td>
 <td><strong>yes</strong></td>
 <td>Street Number</td>
 </tr>
 <tr>
-<td>street</td>
+<td>pickup.street</td>
 <td><strong>yes</strong></td>
 <td>Street Name</td>
 </tr>
 <tr>
-<td>postCode</td>
+<td>pickup.postCode</td>
 <td><strong>yes</strong></td>
 <td>PostCode</td>
 </tr>
 <tr>
-<td>city</td>
+<td>pickup.city</td>
 <td><strong>yes</strong></td>
 <td>City</td>
 </tr>
 <tr>
-<td>dropoffLocation</td>
+<td>pickup.address</td>
+<td>No</td>
+<td>If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the ​<em>pickup</em>​ or ​<em>dropoff</em>​ object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.</td>
+</tr>
+<tr>
+<td>dropoff</td>
 <td><strong>yes</strong></td>
 <td>Object including the parameters of the Dropoff item</td>
 </tr>
 <tr>
-<td>name</td>
+<td>dropoff.name</td>
 <td><strong>yes</strong></td>
-<td>Name at Dropoff Address (Person/Business Name)</td>
+<td>Name at Dropoff Address (Person Name)</td>
 </tr>
 <tr>
-<td>phone</td>
+<td>dropoff.companyName</td>
+<td><strong>yes</strong></td>
+<td>Name at Dropoff Address (Business Name)</td>
+</tr>
+<tr>
+<td>dropoff.phone</td>
 <td><strong>yes</strong></td>
 <td>Phone No. of Dropoff Address</td>
 </tr>
 <tr>
-<td>email</td>
+<td>dropoff.email</td>
 <td><strong>yes</strong></td>
 <td>Email address of Dropoff Address</td>
 </tr>
 <tr>
-<td>streetNumber</td>
+<td>dropoff.streetNumber</td>
 <td><strong>yes</strong></td>
 <td>Street Number</td>
 </tr>
 <tr>
-<td>street</td>
+<td>dropoff.street</td>
 <td><strong>yes</strong></td>
 <td>Street Name</td>
 </tr>
 <tr>
-<td>postCode</td>
+<td>dropoff.postCode</td>
 <td><strong>yes</strong></td>
 <td>PostCode</td>
 </tr>
 <tr>
-<td>city</td>
+<td>dropoff.city</td>
 <td><strong>yes</strong></td>
 <td>City</td>
+</tr>
+<tr>
+<td>dropoff.address</td>
+<td>No</td>
+<td>If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the ​<em>pickup</em>​ or ​<em>dropoff</em>​ object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.</td>
 </tr>
 <tr>
 <td>deliveryInstructions</td>
@@ -533,11 +551,6 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 <td>No</td>
 <td>Optional field where a <strong>collection</strong> of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include <em>Quantity</em> (integer) and ​<em>Description</em>​ (string).</td>
 </tr>
-<tr>
-<td>requestedAddress</td>
-<td>No</td>
-<td>If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the ​<em>pickupLocation</em>​ or ​<em>dropoffLocation</em>​ object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.</td>
-</tr>
 </tbody></table>
 
 <h2 id="get-a-quote">Get a Quote</h2>
@@ -552,10 +565,10 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
     </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"deliveryInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Handle with care"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"earliestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T11:55:37.847008+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T16:55:37.847008+00:00"</span><span class="p">,</span><span class="w">  
-    </span><span class="nt">"pickupLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"vehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"van"</span><span class="p">,</span><span class="w">    
+    </span><span class="nt">"pickup"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"earliestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T11:55:37.847008+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latestPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-22T16:55:37.847008+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CatMan"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0740xxxxxx"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr@catface.com"</span><span class="p">,</span><span class="w">
@@ -564,7 +577,7 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
         </span><span class="nt">"postCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EC2A2EX"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"dropoffLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"dropoff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DogMan"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0745xxxxxx"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sir@dogface.com"</span><span class="p">,</span><span class="w">
@@ -622,99 +635,109 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 <td><strong>van</strong> or <strong>scooter</strong> - Fixed Deliveries can use ​<em>scooter</em>​ parameter. Open Deliveries can use the ​<em>scooter</em>​ or ​<em>van</em>​ parameter.</td>
 </tr>
 <tr>
-<td>pickupTime</td>
-<td><strong>yes</strong></td>
-<td>Fixed Deliveries must use the ​<em>pickupTime</em>​ parameter.</td>
-</tr>
-<tr>
-<td>earliestPickupTime</td>
-<td><strong>yes</strong></td>
-<td>Required for Open Deliveries. Used in conjunction with the <em>latestPickupTime</em>​ parameter. Use the ​<em>earliestPickupTime</em>​ parameter to signify the start of a window. eg. Delivery between ​<em>earliestPickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00.</td>
-</tr>
-<tr>
-<td>latestPickupTime</td>
-<td><strong>yes</strong></td>
-<td>Required for Open Deliveries. Use the ​<em>latestPickupTime</em>​ parameter to signify the end of a window. eg. Delivery between ​<em>earliestPickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00.</td>
-</tr>
-<tr>
-<td>pickupLocation</td>
+<td>pickup</td>
 <td><strong>yes</strong></td>
 <td>Object including the parameters of the Pickup item</td>
 </tr>
 <tr>
-<td>name</td>
+<td>pickup.name</td>
 <td><strong>no</strong></td>
 <td>Name at Pickup Address (Person/Business Name)</td>
 </tr>
 <tr>
-<td>phone</td>
+<td>pickup.phone</td>
 <td><strong>no</strong></td>
 <td>Phone No. of Pickup Address</td>
 </tr>
 <tr>
-<td>email</td>
+<td>pickup.email</td>
 <td><strong>no</strong></td>
 <td>Email address of Pickup Address</td>
 </tr>
 <tr>
-<td>streetNumber</td>
+<td>pickup.streetNumber</td>
 <td><strong>yes</strong></td>
 <td>Street Number</td>
 </tr>
 <tr>
-<td>street</td>
+<td>pickup.street</td>
 <td><strong>yes</strong></td>
 <td>Street Name</td>
 </tr>
 <tr>
-<td>postCode</td>
+<td>pickup.postCode</td>
 <td><strong>yes</strong></td>
 <td>PostCode</td>
 </tr>
 <tr>
-<td>city</td>
+<td>pickup.city</td>
 <td><strong>yes</strong></td>
 <td>City</td>
 </tr>
 <tr>
-<td>dropoffLocation</td>
+<td>pickup.address</td>
+<td>No</td>
+<td>If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the <em>pickup</em> or <em>dropoff</em> object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.</td>
+</tr>
+<tr>
+<td>pickup.pickupTime</td>
+<td><strong>yes</strong></td>
+<td>Fixed Deliveries must use the ​<em>pickupTime</em>​ parameter.</td>
+</tr>
+<tr>
+<td>pickup.earliestPickupTime</td>
+<td><strong>yes</strong></td>
+<td>Required for Open Deliveries. Used in conjunction with the <em>latestPickupTime</em>​ parameter. Use the ​<em>earliestPickupTime</em>​ parameter to signify the start of a window. eg. Delivery between ​<em>earliestPickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00.</td>
+</tr>
+<tr>
+<td>pickup.latestPickupTime</td>
+<td><strong>yes</strong></td>
+<td>Required for Open Deliveries. Use the ​<em>latestPickupTime</em>​ parameter to signify the end of a window. eg. Delivery between ​<em>earliestPickupTime</em>​ 09:00 and ​<em>latestPickupTime</em>​ 12:00.</td>
+</tr>
+<tr>
+<td>dropoff</td>
 <td><strong>yes</strong></td>
 <td>Object including the parameters of the Dropoff item</td>
 </tr>
 <tr>
-<td>name</td>
+<td>dropoff.name</td>
 <td><strong>no</strong></td>
 <td>Name at Dropoff Address (Person/Business Name)</td>
 </tr>
 <tr>
-<td>phone</td>
+<td>dropoff.phone</td>
 <td><strong>no</strong></td>
 <td>Phone No. of Dropoff Address</td>
 </tr>
 <tr>
-<td>email</td>
+<td>dropoff.email</td>
 <td><strong>no</strong></td>
 <td>Email address of Dropoff Address</td>
 </tr>
 <tr>
-<td>streetNumber</td>
+<td>dropoff.streetNumber</td>
 <td><strong>yes</strong></td>
 <td>Street Number</td>
 </tr>
 <tr>
-<td>street</td>
+<td>dropoff.street</td>
 <td><strong>yes</strong></td>
 <td>Street Name</td>
 </tr>
 <tr>
-<td>postCode</td>
+<td>dropoff.postCode</td>
 <td><strong>yes</strong></td>
 <td>PostCode</td>
 </tr>
 <tr>
-<td>city</td>
+<td>dropoff.city</td>
 <td><strong>yes</strong></td>
 <td>City</td>
+</tr>
+<tr>
+<td>dropoff.address</td>
+<td>No</td>
+<td>If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the <em>pickup</em> or <em>dropoff</em> object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.</td>
 </tr>
 <tr>
 <td>deliveryInstructions</td>
@@ -735,11 +758,6 @@ page and pageSize are mandatory to prevent fetching a huge dataset.
 <td>items: []</td>
 <td>No</td>
 <td>Optional field where a <strong>collection</strong> of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include <em>Quantity</em> (integer) and <em>Description</em> (string).</td>
-</tr>
-<tr>
-<td>requestedAddress</td>
-<td>No</td>
-<td>If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the <em>pickupLocation</em> or <em>dropoffLocation</em> object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.</td>
 </tr>
 </tbody></table>
 
