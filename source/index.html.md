@@ -319,6 +319,82 @@ items: [] | No | Optional field where a **collection** of items can be passed to
 
 
 
+## Cancel delivery
+
+
+```shell
+curl -X "POST" --data @body.json
+    "https://api.swishd.com/v1/deliveries/cancel/id"
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+    "_id": "[order id]",
+    "type": "fixed",
+    "vehicleType": "scooter",
+    "unattendedDeliveryOption": "alt",    
+    "pickup": {
+      "name": "Mr John Doe",
+      "phone": "07xxxxxxxx",
+      "email": "mrx@email.com",
+      "pickupTime": "2016-05-03T12:31:00.000Z",
+      "latestPickupTime": "2016-05-03T15:31:00.000Z",
+      "address": "1 Primrose St, London EC2A 2EX, UK",
+      "geoCodedAddress": "1 Primrose St, London EC2A 2EX, UK",
+      "customerId": "xxx",
+      "description": "xxx",
+      "companyName": ""
+    },
+    "dropoff": {
+      "name": "Arthur",
+      "phone": "12345645646",
+      "email": "ms@email.com",
+      "address": "1 Commercial St, London E1 6LP, UK",
+      "geoCodedAddress": "1 Commercial St, London E1 6LP, UK",
+      "latestDropoffTime": "2016-05-03T12:50:27.000Z",
+      "earliestDropoffTime": "2016-05-03T12:50:27.000Z",
+      "customerId": "xxx",
+      "description": "xxx",
+      "companyName": ""
+    },
+    "quote": {
+        "deliveryTime": "2016-05-03T12:50:27.000Z",
+        "distance": "1.87",
+        "minutes": "19",
+        "distUnit": "mile",
+        "currency": "GBP",
+        "cost": "7.60",
+        "_id": "5728961744c8c8241f2f70d9"
+    },
+    "currentStatus": "Completed",
+    "jobId": "xxx",
+    "merchantId": "xxx",
+    "reference": "194055",
+    "driverName": "Ayman",
+    "driverId": "56b346a8f3e7800a28812bbb",
+    "lastUpdated": "2016-05-03T12:50:09.990Z",
+    "created": "2016-05-03T12:14:06.297Z",    
+    "items": []
+}
+```
+This endpoint cancels a specific delivery.
+
+<aside class="warning">You need to know the delivery id</aside>
+
+### HTTP Request
+
+`GET https://api.swishd.com/v1/deliveries/cancel/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the delivery to cancel
+
+
+
+
 ## Get a Quote
 
 
