@@ -55,14 +55,15 @@ curl -H "Authorization: Bearer [the key]"
 [
     {
         "_id": "[order id]",
-        "type": "fixed",
+        "type": "[service type]",
         "vehicleType": "scooter",
         "unattendedDeliveryOption": "safeplace",        
         "pickup": {
           "name": "Mr John Doe",
           "email": "mrx@email.com",
-          "pickupTime": "2016-05-03T12:31:00.000Z",
-          "latestPickupTime": "2016-05-03T15:31:00.000Z",
+          "earliestPickupTime": "[pickup can start at that time. ISO format]",
+          "pickupTime": "[estimated actual pickup time]",
+          "latestPickupTime": "[pikup should happen before that time]",
           "address": "1 Primrose St, London EC2A 2EX, UK",
           "customerId": "xxx"
         },
@@ -70,25 +71,24 @@ curl -H "Authorization: Bearer [the key]"
           "name": "Arthur",
           "email": "ms@email.com",
           "address": "1 Commercial St, London E1 6LP, UK",
-          "latestDropoffTime": "2016-05-03T12:50:27.000Z",
-          "earliestDropoffTime": "2016-05-03T12:50:27.000Z",
+          "dropoffTime": "[estimated drop-off time]",
+          "latestDropoffTime": "[latest allowed time for drop-off]",
           "customerId": "xxx"
         },
         "quote": {
-            "deliveryTime": "2016-05-03T12:50:27.000Z",
+            "deliveryTime": "[ETA for drop-off]",
             "distance": "1.87",
             "minutes": "19",
             "distUnit": "mile",
             "currency": "GBP",
-            "cost": "7.60",
-            "_id": "5728961744c8c8241f2f70d9"
+            "cost": "7.60"
         },
         "currentStatus": "Completed",
-        "jobId": "xxx",
-        "merchantId": "xxx",
-        "reference": "194055",
+        "jobId": "[internal use]",
+        "merchantId": "[internal use]",
+        "reference": "[customer ref]",
         "driverName": "Ayman",
-        "driverId": "1234124542342",
+        "driverId": "[internal use]",
         "lastUpdated": "2016-05-03T12:50:09.990Z",
         "created": "2016-05-03T12:14:06.297Z",
         "items": []
@@ -126,15 +126,16 @@ curl -H "Authorization: Bearer [the key]"
 ```json
 {
     "_id": "[order id]",
-    "type": "fixed",
+    "type": "[service type]",
     "vehicleType": "scooter",
     "unattendedDeliveryOption": "alt",    
     "pickup": {
       "name": "Mr John Doe",
       "phone": "07xxxxxxxx",
       "email": "mrx@email.com",
-      "pickupTime": "2016-05-03T12:31:00.000Z",
-      "latestPickupTime": "2016-05-03T15:31:00.000Z",
+      "earliestPickupTime": "[pickup can start at that time. ISO format]",
+      "pickupTime": "[estimated actual pickup time]",
+      "latestPickupTime": "[pikup should happen before that time]",
       "address": "1 Primrose St, London EC2A 2EX, UK",
       "geoCodedAddress": "1 Primrose St, London EC2A 2EX, UK",
       "customerId": "xxx",
@@ -147,14 +148,14 @@ curl -H "Authorization: Bearer [the key]"
       "email": "ms@email.com",
       "address": "1 Commercial St, London E1 6LP, UK",
       "geoCodedAddress": "1 Commercial St, London E1 6LP, UK",
-      "latestDropoffTime": "2016-05-03T12:50:27.000Z",
-      "earliestDropoffTime": "2016-05-03T12:50:27.000Z",
+      "dropoffTime": "[estimated drop-off time]",
+      "latestDropoffTime": "[latest allowed time for drop-off]",
       "customerId": "xxx",
       "description": "xxx",
       "companyName": ""
     },
     "quote": {
-        "deliveryTime": "2016-05-03T12:50:27.000Z",
+        "deliveryTime": "[ETA]",
         "distance": "1.87",
         "minutes": "19",
         "distUnit": "mile",
@@ -203,8 +204,7 @@ curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
 {
     "reference": "TEST01",
     "deliveryInstructions": "Handle with care",
-    "type": "open",
-    "vehicleType": "van",    
+    "vehicleType": "[van|scooter]",    
     "pickup": {
         "name": "CatMan",
         "companyName": "CatMan Ltd.",
@@ -214,8 +214,9 @@ curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
         "street": "Primrose Street",
         "postCode": "EC2A2EX",
         "city": "London",
-        "earliestPickupTime": "2016-02-22T11:55:37.847008+00:00",
-        "latestPickupTime": "2016-02-22T16:55:37.847008+00:00"
+        "earliestPickupTime": "[pickup can start at that time. ISO format]",
+        "pickupTime": "[deprecated]",
+        "latestPickupTime": "[deprecated]"
     },
     "dropoff": {
         "name": "DogMan",        
@@ -225,7 +226,8 @@ curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
         "street": "Commercial Street",
         "postCode": "E1 6LP",
         "city": "London",
-        "description": ""
+        "description": "",
+        "latestDropoffTime": "[latest allowed time for drop-off, ISO format]"
     }
 }
 ```
@@ -240,7 +242,7 @@ curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
     "deliveryInstructions": "Handle with care",
     "merchantId": "571618db84a6f0241fd7e4f6",
     "quote": {
-        "deliveryTime": "2016-05-10T12:46:34.847Z",
+        "deliveryTime": "[ETA for drop off]",
         "distance": "6.23",
         "minutes": "51",
         "distUnit": "mile",
@@ -252,8 +254,8 @@ curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
     "lastUpdated": "2016-05-09T09:20:03.056Z",
     "created": "2016-05-09T09:20:03.056Z",
     "dropoff": {
-        "earliestDropoffTime": "2016-05-10T12:46:34.847Z",
-        "latestDropoffTime": "2016-05-10T12:46:34.847Z",
+        "dropoffTime": "[estimated dropoff time]",
+        "latestDropoffTime": "[The originally requested latest drop off time]",
         "name": "DogMan",
         "companyName": "",
         "phone": "0745xxxxxx",
@@ -261,8 +263,9 @@ curl -H "Authorization: Bearer [the key]" -X "POST" --data @body.json
         "customerId": "..."
     },
     "pickup": {        
-        "earliestPickupTime": "2016-05-10T11:55:37.847Z",
-        "latestPickupTime": "2016-05-10T16:55:37.847Z",
+        "earliestPickupTime": "[the requested earliest pickup time]",
+        "pickupTime": "[Estimated pickup time]",
+        "latestPickupTime": "[Estimated latest pickup time to arrive before latest drop-off]",
         "name": "CatMan",
         "companyName": "CatMan Ltd.",        
         "phone": "0740xxxxxx",
@@ -285,14 +288,11 @@ This endpoint adds a new delivery order into the system.
 ### Book Delivery Fields
 
 Parameter | Required | Description
---------- | ------- | -----------
+--------- | -------- | -----------
 reference | no | If this is not included, Swishd will auto-generate a reference number
-type | **yes** | **open** or **fixed** - Fixed Deliveries must use the ​*pickup.pickupTime*​ parameter. Open Deliveries must use the *pickup.earliestPickupTime & ​*pickup.latestPickupTime*​ parameters.
-vehicleType | **yes** | **van** or **scooter** - Fixed Deliveries can use ​*scooter*​ parameter. Open Deliveries can use the ​*scooter*​ or ​*van*​ parameter.
+vehicleType | **yes** | **van** or **scooter**. Van deliveries need a pickup - dropoff window of at least 3 hours.
 pickup | **yes** | Object including the parameters of the Pickup item
-pickup.pickupTime | **yes** | Fixed Deliveries must use the ​*pickupTime*​ parameter.
-pickup.earliestPickupTime | **yes** | Required for Open Deliveries. Used in conjunction with the *latestPickupTime*​ parameter. Use the ​*earliestPickupTime*​ parameter to signify the start of a window. eg. Delivery between ​*earliestPickupTime*​ 09:00 and ​*latestPickupTime*​ 12:00.
-pickup.latestPickupTime | **yes** | Required for Open Deliveries. Use the ​*latestPickupTime*​ parameter to signify the end of a window. eg. Delivery between ​*earliestPickupTime*​ 09:00 and ​*latestPickupTime*​ 12:00.
+pickup.earliestPickupTime | **yes** | Delivery (pickup) can start from that moment.
 pickup.name | **yes** | Name at Pickup Address (Person Name)
 pickup.companyName | **yes** | Name at Pickup Address (Business Name)
 pickup.phone | **yes** | Phone No. of Pickup Address
@@ -312,11 +312,22 @@ dropoff.street | **yes** | Street Name
 dropoff.postCode | **yes** | PostCode
 dropoff.city | **yes** | City
 dropoff.address | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the ​*pickup*​ or ​*dropoff*​ object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
+dropoff.latestDropoffTime | No | The parcel needs to be delivered before this time. Price and vehicle types can depend on the urgency of the delivery.
 deliveryInstructions | no | Any additional information that is required to be passed to the driver
 unattendedDeliveryOption | **yes** | Options include: **safeplace** (Leave in a safe place) , **neighbour** (Leave item with Neighbour), **alt** (Delivery to Alternative Address - Will incur additional cost), **returnsender** (Delivery to Alternative Address - Will incur additional cost)
 unattendedDeliveryNote | no | Notes relating to the *unattendedDeliveryOption*
-items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include *Quantity* (integer) and ​*Description*​ (string).
+items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items.
 
+
+Item structure:
+```json
+{
+   "quantity": "Number",
+   "sku": "[SKU code, String]",
+   "description": "String",
+   "price": "Number"
+}
+```
 
 
 ## Cancel delivery
@@ -331,32 +342,27 @@ curl -X "POST" --data @body.json
 ```json
 {
     "_id": "[order id]",
-    "type": "fixed",
+    "type": "[service type]",
     "vehicleType": "scooter",
     "unattendedDeliveryOption": "alt",    
-    "pickup": {
-      "name": "Mr John Doe",
-      "phone": "07xxxxxxxx",
-      "email": "mrx@email.com",
-      "pickupTime": "2016-05-03T12:31:00.000Z",
-      "latestPickupTime": "2016-05-03T15:31:00.000Z",
-      "address": "1 Primrose St, London EC2A 2EX, UK",
-      "geoCodedAddress": "1 Primrose St, London EC2A 2EX, UK",
-      "customerId": "xxx",
-      "description": "xxx",
-      "companyName": ""
-    },
     "dropoff": {
-      "name": "Arthur",
-      "phone": "12345645646",
-      "email": "ms@email.com",
-      "address": "1 Commercial St, London E1 6LP, UK",
-      "geoCodedAddress": "1 Commercial St, London E1 6LP, UK",
-      "latestDropoffTime": "2016-05-03T12:50:27.000Z",
-      "earliestDropoffTime": "2016-05-03T12:50:27.000Z",
-      "customerId": "xxx",
-      "description": "xxx",
-      "companyName": ""
+        "dropoffTime": "[estimated dropoff time]",
+        "latestDropoffTime": "[The originally requested latest drop off time]",
+        "name": "DogMan",
+        "companyName": "",
+        "phone": "0745xxxxxx",
+        "email": "sir@dogface.com",
+        "customerId": "..."
+    },
+    "pickup": {        
+        "earliestPickupTime": "[the requested earliest pickup time]",
+        "pickupTime": "[Estimated pickup time]",
+        "latestPickupTime": "[Estimated latest pickup time to arrive before latest drop-off]",
+        "name": "CatMan",
+        "companyName": "CatMan Ltd.",        
+        "phone": "0740xxxxxx",
+        "email": "mr@catface.com",
+        "customerId": "56b1dddef3e7800a288129c8"
     },
     "quote": {
         "deliveryTime": "2016-05-03T12:50:27.000Z",
@@ -408,18 +414,18 @@ curl -X "POST" --data @body.json
 {
     "reference": "TEST01",
     "deliveryInstructions": "Handle with care",
-    "type": "open",
     "vehicleType": "van",    
     "pickup": {
-        "earliestPickupTime": "2016-02-22T11:55:37.847008+00:00",
-        "latestPickupTime": "2016-02-22T16:55:37.847008+00:00",
         "name": "CatMan",
         "phone": "0740xxxxxx",
         "email": "mr@catface.com",
         "streetNumber": "1",
         "street": "Primrose Street",
         "postCode": "EC2A2EX",
-        "city": "London"
+        "city": "London",
+        "earliestPickupTime": "[pickup can start at that time. ISO format]",
+        "pickupTime": "[deprecated]",
+        "latestPickupTime": "[deprecated]"
     },
     "dropoff": {
         "name": "DogMan",
@@ -428,7 +434,8 @@ curl -X "POST" --data @body.json
         "streetNumber": "1",
         "street": "Commercial Street",
         "postCode": "E1 6LP",
-        "city": "London"
+        "city": "London",
+        "latestDropoffTime": "[latest allowed time for drop-off, ISO format, optional]"
     }
 }
 ```
@@ -461,7 +468,6 @@ This endpoint returns a quote with an estimated price, distance and delivery tim
 Parameter | Required | Description
 --------- | ------- | -----------
 reference | no | If this is not included, Swishd will auto-generate a reference number
-type | **yes** | **open** or **fixed** - Fixed Deliveries must use the ​*pickupTime*​ parameter. Open Deliveries must use the *earliestPickupTime & ​*latestPickupTime*​ parameters.
 vehicleType | **yes** | **van** or **scooter** - Fixed Deliveries can use ​*scooter*​ parameter. Open Deliveries can use the ​*scooter*​ or ​*van*​ parameter.
 pickup | **yes** | Object including the parameters of the Pickup item
 pickup.name | **no** | Name at Pickup Address (Person/Business Name)
@@ -472,9 +478,7 @@ pickup.street | **yes** | Street Name
 pickup.postCode | **yes** | PostCode
 pickup.city | **yes** | City
 pickup.address | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the *pickup* or *dropoff* object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
-pickup.pickupTime | **yes** | Fixed Deliveries must use the ​*pickupTime*​ parameter.
-pickup.earliestPickupTime | **yes** | Required for Open Deliveries. Used in conjunction with the *latestPickupTime*​ parameter. Use the ​*earliestPickupTime*​ parameter to signify the start of a window. eg. Delivery between ​*earliestPickupTime*​ 09:00 and ​*latestPickupTime*​ 12:00.
-pickup.latestPickupTime | **yes** | Required for Open Deliveries. Use the ​*latestPickupTime*​ parameter to signify the end of a window. eg. Delivery between ​*earliestPickupTime*​ 09:00 and ​*latestPickupTime*​ 12:00.
+pickup.earliestPickupTime | **yes** | Delivery (pickup) can start from that moment.
 dropoff | **yes** | Object including the parameters of the Dropoff item
 dropoff.name | **no** | Name at Dropoff Address (Person/Business Name)
 dropoff.phone | **no** | Phone No. of Dropoff Address
@@ -484,7 +488,4 @@ dropoff.street | **yes** | Street Name
 dropoff.postCode | **yes** | PostCode
 dropoff.city | **yes** | City
 dropoff.address | No | If the pickup/dropoff address are not formatted in the correct manner, we can attempt to geocode it by passing this in the *pickup* or *dropoff* object. We highly suggest using this as a Quote first to ensure the Address returned is the correct one.
-deliveryInstructions | no | Any additional information that is required to be passed to the driver
-unattendedDeliveryOption | **yes** | Options include: **safeplace** (Leave in a safe place) , **neighbour** (Leave item with Neighbour), **alt** (Delivery to Alternative Address - Will incur additional cost), **returnsender** (Delivery to Alternative Address - Will incur additional cost)
-unattendedDeliveryNote | no | Notes relating to the *unattendedDeliveryOption*
-items: [] | No | Optional field where a **collection** of items can be passed to ensure the delivery driver picks up the correct number of items. Parameters in this collection include *Quantity* (integer) and *Description* (string).
+dropoff.latestDropoffTime | No | The parcel needs to be delivered before this time. Price and vehicle types can depend on the urgency of the delivery.
